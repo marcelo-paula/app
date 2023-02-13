@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12 mt-4">
                 <h3 class="mb-5">Register User</h3>
-                <form action="">
+                <form action="" id="form">
                     <div class="form-group mb-2">
                         <label for="name">Name</label>
                         <input class="form-control" type="text" name="name" id="name" placeholder="Informe seu nome" required>
@@ -71,12 +71,24 @@
                 return response.json();
             })
             .then(function (data) {
-              console.log(data);
+                setTimeout(()=>{
+                    window.location.reload(true)
+                }, 2000)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Cadastrado com sucesso!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
             .catch(function (error) {
                 console.error(error);
             });
         });
+
       </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
